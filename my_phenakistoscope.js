@@ -3,11 +3,11 @@ const SLICE_COUNT = 8;
 function setup_pScope(pScope){
   pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
-  pScope.draw_layer_boundaries(true);
+  pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
   pScope.set_slice_count(SLICE_COUNT);
   pScope.load_image("peony_circle" , "png");
-  pScope.load_image_sequence("mariposa" , "png", 2);
+  pScope.load_image_sequence("mariposa" , "png", 5);
   pScope.load_image_sequence("petals" , "png", 4);
  
   
@@ -20,8 +20,8 @@ function setup_layers(pScope){
 
 
   let layer4 = new PLayer(petals); // I put layer 4 on top to have it behind the other visuals. 
-  layer4.mode(SWIRL(4));
-  layer4.set_boundary (0,400);
+  layer4.mode(SWIRL(10));
+  layer4.set_boundary (0,1000);
 
   var layer1 = new PLayer(mariposa);
   layer1.mode( RING );
@@ -41,9 +41,14 @@ function setup_layers(pScope){
 function petals (x, y, animation, pScope){
 
   scale(animation.frame*5);
+  //scale(0.5 * animation.frame)
 
   
-  pScope.draw_image_from_sequence("petals", 1200, 1000 - animation.wave()*50, animation.frame);
+  //pScope.draw_image_from_sequence("petals", 1200, 1000 - animation.wave()*50, animation.frame);
+  
+ 
+  pScope.draw_image_from_sequence("petals", 1000, 0 - animation.wave()*50, animation.frame);
+
 
 
 }
@@ -52,8 +57,8 @@ function mariposa (x, y, animation, pScope){
   
   //scale(animation.frame*2);
 
-  scale(0.4); // my butterflys 
-  pScope.draw_image_from_sequence("mariposa", 1200, 1000 - animation.wave()*50, animation.frame);
+  scale(0.5); // my butterflys 
+  pScope.draw_image_from_sequence("mariposa", 1200, 1000 - animation.wave()*50, animation.frame*2);
 
 }
 
