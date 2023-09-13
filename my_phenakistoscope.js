@@ -41,10 +41,6 @@ function setup_layers(pScope){
 function petals (x, y, animation, pScope){
 
   scale(animation.frame*5);
-  //scale(0.5 * animation.frame)
-
-  
-  //pScope.draw_image_from_sequence("petals", 1200, 1000 - animation.wave()*50, animation.frame);
   
  
   pScope.draw_image_from_sequence("petals", 1000, 0 - animation.wave()*50, animation.frame);
@@ -55,7 +51,7 @@ function petals (x, y, animation, pScope){
 
 function mariposa (x, y, animation, pScope){
   
-  //scale(animation.frame*2);
+
 
   scale(0.5); // my butterflys 
   pScope.draw_image_from_sequence("mariposa", 1200, 1000 - animation.wave()*50, animation.frame*2);
@@ -69,14 +65,7 @@ function peony (x, y, animation, pScope){
   let backgroundArcStart = 270 - angleOffset;
   let backgroundArcEnd = 270 + angleOffset;
 
-  //strokeWeight(0);
-
-  /* rotate(5);
-  fill(237, 119, 208)
-  arc(x,y,300,500,backgroundArcStart,backgroundArcEnd); // draws "pizza slice" in the background */
- 
-  /* fill(255)
-  rect(-10,-300-animation.wave()*50,20,20) // .wave is a cosine wave btw */
+  
 
   scale(1); // center peony 
   pScope.draw_image("peony_circle", x + 15, y+20,backgroundArcStart,backgroundArcEnd);
